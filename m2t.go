@@ -57,7 +57,9 @@ func main() {
 			// split at '='
 			fileName := regexp.MustCompile(`=`).Split(torrentFilename, -1)[1]
 			if (len(fileName) == 0) {
-
+				xt := validMagnet.FindString(flag.Arg(0))
+				fileName = regexp.MustCompile(`:`).Split(xt, -1)[2]
+			}
 			fmt.Println(torrentFilename)
 			fmt.Println(fileName)
 		}
