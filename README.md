@@ -5,6 +5,14 @@ M2T (aka Magnet To Torrent) is an utility to convert magnet URI into torrent fil
 
 It is heavily inspired by the bash script on the [rTorrent Wiki](http://community.rutorrent.org/MagnetUri#Handling_.22magnet:.22_URIs_via_a_bash_script)
 
+Install
+=======
+
+Pretty standard procedure
+
+	go get github.com/Donearm/m2t
+	go install github.com/Donearm/m2t
+
 
 License
 =======
