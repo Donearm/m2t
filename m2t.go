@@ -15,21 +15,21 @@ import (
 	"strconv"
 )
 
-var mgnt_type string
+var mgntType string
 var watchdir string
 
 // Parse flags
 func init() {
 
 	const (
-		def_watchdir = "/media/private/torrent/watch"
-		def_type     = "others"
+		defWatchdir = "/media/private/torrent/watch"
+		defType     = "others"
 	)
 
-	flag.StringVar(&mgnt_type, "type", def_type, "")
-	flag.StringVar(&mgnt_type, "t", def_type, "")
-	flag.StringVar(&watchdir, "watchdir", def_watchdir, "")
-	flag.StringVar(&watchdir, "w", def_watchdir, "")
+	flag.StringVar(&mgntType, "type", defType, "")
+	flag.StringVar(&mgntType, "t", defType, "")
+	flag.StringVar(&watchdir, "watchdir", defWatchdir, "")
+	flag.StringVar(&watchdir, "w", defWatchdir, "")
 
 }
 
@@ -46,7 +46,7 @@ func main() {
 	}
 
 	// Compose the watch dir's path for the torrent file
-	outputDir := path.Join(watchdir, mgnt_type)
+	outputDir := path.Join(watchdir, mgntType)
 	// Reassign first flag to a variable
 	magnetLink := flag.Arg(0)
 
@@ -77,8 +77,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_, w_err := f.WriteString("d10:magnet-uri" + strconv.Itoa(len(magnetLink)) + ":" + magnetLink + "e")
-	if w_err != nil {
+	_, wErr := f.WriteString("d10:magnet-uri" + strconv.Itoa(len(magnetLink)) + ":" + magnetLink + "e")
+	if wErr != nil {
 		panic(err)
 	}
 
