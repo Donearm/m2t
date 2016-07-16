@@ -18,8 +18,26 @@ import (
 var mgntType string
 var watchdir string
 
+var usageMessage = `
+m2t [-t|-type <type>] [-w|watchdir <directory>] <magnetlink>
+
+M2T (Magnet To Torrent) will convert magnet links to torrent files. It works by using the "watch directorry" feature of many torrent clients
+
+Arguments:
+	-t|-type <type>
+		The type of the file contained in the magnet link. Defaults to "others"
+
+	-w|-watchdir <directory>
+		The directory where the torrent client watches for new torrents.
+		It must exist. Defaults to '/media/private/torrent/watch
+	`
+
 // Parse flags
 func init() {
+
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, usageMessage)
+	}
 
 	const (
 		defWatchdir = "/media/private/torrent/watch"
