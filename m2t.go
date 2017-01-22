@@ -21,7 +21,7 @@ var watchdir string
 var usageMessage = `
 m2t [-t|-type <type>] [-w|watchdir <directory>] <magnetlink>
 
-M2T (Magnet To Torrent) will convert magnet links to torrent files. It works by using the "watch directorry" feature of many torrent clients
+M2T (Magnet To Torrent) will convert magnet links to torrent files. It works by using the "watch directory" feature of many torrent clients
 
 Arguments:
 	-t|-type <type>
