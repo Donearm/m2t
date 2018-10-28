@@ -1,8 +1,6 @@
 # M2T
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-
-[![Build Status](https://travis-ci.org/Donearm/m2t.svg?branch=master)](https://travis-ci.org/Donearm/m2t)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme) [![Build Status](https://travis-ci.org/Donearm/m2t.svg?branch=master)](https://travis-ci.org/Donearm/m2t)
 
 M2T (aka Magnet To Torrent) is an utility to convert magnet URI into torrent files. It is meant to be used in combination with rTorrent or any other torrent downloader that support a "watch directory" (a directory that is periodically checked for new torrent files which are then automatically downloaded). rTorrent, µtorrent, Transmission do support this feature, among others (you know more? PR please!)
 
