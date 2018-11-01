@@ -69,7 +69,7 @@ func main() {
 	magnetLink := flag.Arg(0)
 
 	// Compile a couple of regexp we need
-	var validMagnet = regexp.MustCompile(`xt=urn:btih:([^&/]+)`)
+	var validMagnet = regexp.MustCompile(`xt=urn(\.[0-9]*)?:btih:([^&/]+)`)
 	var displayName = regexp.MustCompile(`dn=([^&/]+)`)
 
 	if validMagnet.MatchString(magnetLink) {
