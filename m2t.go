@@ -71,19 +71,26 @@ func main() {
 	// Compile a couple of regexp we need
 	var validMagnet = regexp.MustCompile(`xt=urn(\.[0-9]*)?:btih:([^&/]+)`)
 	var displayName = regexp.MustCompile(`dn=([^&/]+)`)
+	var infoHash = regexp.MustCompile(`btih:([^&/]+)`)
 
 	if validMagnet.MatchString(magnetLink) {
 		if displayName.MatchString(magnetLink) {
 			torrentFilename = displayName.FindString(magnetLink)
-			// split at '='
-			fileName = regexp.MustCompile(`=`).Split(torrentFilename, -1)[1]
-			if len(fileName) == 0 {
-				xt := validMagnet.FindString(magnetLink)
-				fileName = regexp.MustCompile(`:`).Split(xt, -1)[2]
-			}
-			// Add torrent extension
-			fileName = fileName + ".torrent"
+		} else if infoHash.MatchString(magnetLink) {
+			torrentFilename = infoHash.FindString(magnetLink)
+		} else {
+			fmt.Println("Format of magnet URI not supported")
+			os.Exit(1)
 		}
+
+		// split at '='
+		fileName = regexp.MustCompile(`=`).Split(torrentFilename, -1)[1]
+		if len(fileName) == 0 {
+			xt := validMagnet.FindString(magnetLink)
+			fileName = regexp.MustCompile(`:`).Split(xt, -1)[2]
+		}
+		// Add torrent extension
+		fileName = fileName + ".torrent"
 	} else {
 		// not a valid magnet URI given
 		fmt.Println("The magnet URI is not correct or unparseable")
