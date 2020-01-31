@@ -77,7 +77,8 @@ func main() {
 		if displayName.MatchString(magnetLink) {
 			torrentFilename = displayName.FindString(magnetLink)
 		} else if infoHash.MatchString(magnetLink) {
-			torrentFilename = infoHash.FindString(magnetLink)
+			//torrentFilename = infoHash.FindString(magnetLink)
+			torrentFilename = validMagnet.FindString(magnetLink)
 		} else {
 			fmt.Println("Format of magnet URI not supported")
 			os.Exit(1)
