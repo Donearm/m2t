@@ -29,7 +29,7 @@ Arguments:
 
 	-w|-watchdir <directory>
 		The directory where the torrent client watches for new torrents.
-		It must exist. Defaults to '/media/private/torrent/watch
+		It must exist. Defaults to '/mnt/private/torrent/watch
 	`
 
 // Parse flags
@@ -40,7 +40,7 @@ func init() {
 	}
 
 	const (
-		defWatchdir = "/media/private/torrent/watch"
+		defWatchdir = "/mnt/private/torrent/watch"
 		defType     = "others"
 	)
 
